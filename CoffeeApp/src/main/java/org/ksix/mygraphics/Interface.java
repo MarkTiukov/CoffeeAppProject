@@ -4,7 +4,4 @@ public interface Interface {
     void setUpWindow();
 
     void showWindow();
-
-    void createBasicFrames();
-
 }
