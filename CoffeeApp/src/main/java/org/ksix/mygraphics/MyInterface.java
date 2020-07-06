@@ -27,17 +27,24 @@ public class MyInterface implements Interface {
 
         /// delete
         JPanel a = new JPanel();
-        a.setSize(1000, 2000);
         a.setBackground(Color.BLUE);
         this.external_layout.putConstraint(SpringLayout.WEST, a, 5, SpringLayout.WEST, this.window.getContentPane());
+        this.external_layout.putConstraint(SpringLayout.NORTH, a, 10, SpringLayout.NORTH, this.window.getContentPane());
+        this.external_layout.putConstraint(SpringLayout.SOUTH, this.window.getContentPane(), 10, SpringLayout.SOUTH, a);
+
         JPanel b = new JPanel();
-        b.setSize(1000, 2000);
         b.setBackground(Color.YELLOW);
         this.external_layout.putConstraint(SpringLayout.WEST, b, 5, SpringLayout.EAST, a);
+        this.external_layout.putConstraint(SpringLayout.NORTH, b, 0, SpringLayout.NORTH, a);
+        this.external_layout.putConstraint(SpringLayout.SOUTH, b, 0, SpringLayout.SOUTH, a);
+
         JPanel c = new JPanel();
-        c.setSize(1000, 2000);
         c.setBackground(Color.CYAN);
         this.external_layout.putConstraint(SpringLayout.WEST, c, 5, SpringLayout.EAST, b);
+        this.external_layout.putConstraint(SpringLayout.EAST, this.window.getContentPane(), 5, SpringLayout.EAST, c);
+        this.external_layout.putConstraint(SpringLayout.NORTH, c, 0, SpringLayout.NORTH, b);
+        this.external_layout.putConstraint(SpringLayout.SOUTH, c, 0, SpringLayout.SOUTH, b);
+
         this.window.add(a);
         this.window.add(b);
         this.window.add(c);
