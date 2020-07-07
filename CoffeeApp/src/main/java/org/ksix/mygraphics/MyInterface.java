@@ -28,32 +28,6 @@ public class MyInterface implements Interface {
         window.setLayout(external_layout);
     }
 
-    public void example() {
-        // can be deleted
-        JPanel a = new JPanel();
-        a.setBackground(Color.BLUE);
-        external_layout.putConstraint(SpringLayout.WEST, a, 5, SpringLayout.WEST, window.getContentPane());
-        external_layout.putConstraint(SpringLayout.NORTH, a, 10, SpringLayout.NORTH, window.getContentPane());
-        external_layout.putConstraint(SpringLayout.SOUTH, window.getContentPane(), 10, SpringLayout.SOUTH, a);
-
-        JPanel b = new JPanel();
-        b.setBackground(Color.YELLOW);
-        external_layout.putConstraint(SpringLayout.WEST, b, 5, SpringLayout.EAST, a);
-        external_layout.putConstraint(SpringLayout.NORTH, b, 0, SpringLayout.NORTH, a);
-        external_layout.putConstraint(SpringLayout.SOUTH, b, 0, SpringLayout.SOUTH, a);
-
-        JPanel c = new JPanel();
-        c.setBackground(Color.CYAN);
-        external_layout.putConstraint(SpringLayout.WEST, c, 5, SpringLayout.EAST, b);
-        external_layout.putConstraint(SpringLayout.EAST, window.getContentPane(), 5, SpringLayout.EAST, c);
-        external_layout.putConstraint(SpringLayout.NORTH, c, 0, SpringLayout.NORTH, b);
-        external_layout.putConstraint(SpringLayout.SOUTH, c, 0, SpringLayout.SOUTH, b);
-
-        window.add(a);
-        window.add(b);
-        window.add(c);
-    }
-
     private void createBasicFrames() {
         categories_frame = new JPanel();
         menu_frame = new JPanel();
@@ -99,4 +73,5 @@ public class MyInterface implements Interface {
     public void showWindow() {
         window.setVisible(true);
     }
+
 }

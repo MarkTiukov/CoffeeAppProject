@@ -8,10 +8,10 @@ import java.util.Scanner;
 public class Uploader {
     private static final String main_directory = "static/";
     private static final String menu_directory = main_directory + "menu/";
-    public static ArrayList<String> coffee = new ArrayList<>();
+    public static ArrayList<Dish> coffee = new ArrayList<>();
     public static ArrayList<String> tea = new ArrayList<>();
-    public static ArrayList<String> desserts = new ArrayList<>();
-    public static ArrayList<String> syrups = new ArrayList<>();
+    public static ArrayList<Dish> desserts = new ArrayList<>();
+    public static ArrayList<Dish> syrups = new ArrayList<>();
 
     public static void uploadEverything() {
         uploadCoffeeMenu();
@@ -21,32 +21,23 @@ public class Uploader {
     }
 
     private static void uploadCoffeeMenu() {
-        File current_file = new File(menu_directory + "coffee_menu.txt");
-        try (Scanner scanner = new Scanner(current_file)) {
-            while (scanner.hasNextLine()) {
-                coffee.add(scanner.nextLine());
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        scanFile(new File(menu_directory + "coffee_menu.txt"), coffee, true);
     }
 
     private static void uploadTeaMenu() {
-        File current_file = new File(menu_directory + "tea_menu.txt");
-        try (Scanner scanner = new Scanner(current_file)) {
-            while (scanner.hasNextLine()) {
-                tea.add(scanner.nextLine());
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        scanFile(new File(menu_directory + "tea_menu.txt"), coffee, true);
+
     }
 
     private static void uploadDessertMenu() {
-        File current_file = new File(menu_directory + "dessert_menu.txt");
+        scanFile(new File(menu_directory + "dessert_menu.txt"), desserts, true);
+    }
+
+    private static void scanFile(File current_file, ArrayList<Dish> array, boolean hasPrice) {
         try (Scanner scanner = new Scanner(current_file)) {
             while (scanner.hasNextLine()) {
-                desserts.add(scanner.nextLine());
+                String current = scanner.nextLine();
+                array.add(new Dish(current.split(" ")[0], hasPrice ? Integer.parseInt(current.split(" ")[1]) : 0));
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -54,14 +45,7 @@ public class Uploader {
     }
 
     private static void uploadSyrupMenu() {
-        File current_file = new File(menu_directory + "syrup_menu.txt");
-        try (Scanner scanner = new Scanner(current_file)) {
-            while (scanner.hasNextLine()) {
-                syrups.add(scanner.nextLine());
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        scanFile(new File(menu_directory + "syrup_menu.txt"), syrups, false);
     }
 
 }
