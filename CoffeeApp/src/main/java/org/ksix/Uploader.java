@@ -9,7 +9,7 @@ public class Uploader {
     private static final String main_directory = "static/";
     private static final String menu_directory = main_directory + "menu/";
     public static ArrayList<Dish> coffee = new ArrayList<>();
-    public static ArrayList<String> tea = new ArrayList<>();
+    public static ArrayList<Dish> tea = new ArrayList<>();
     public static ArrayList<Dish> desserts = new ArrayList<>();
     public static ArrayList<Dish> syrups = new ArrayList<>();
 
