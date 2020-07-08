@@ -6,10 +6,10 @@ import java.awt.*;
 public class MyInterface implements Interface {
     private final JFrame window = new JFrame("War Game");
     private final int STANDART_INDENTATION = 5;
-    private JPanel categories_frame;
-    private JPanel menu_frame;
-    private JPanel orders_frame;
-    private JPanel control_panel_frame;
+    private Column categories_frame;
+    private Column menu_frame;
+    private Column orders_frame;
+    private Column control_panel_frame;
     private SpringLayout external_layout;
 
     public MyInterface() {
@@ -30,18 +30,22 @@ public class MyInterface implements Interface {
 
     private void createBasicFrames() {
         //TODO replace for my own "Column"
-        categories_frame = new JPanel();
-        menu_frame = new JPanel();
-        orders_frame = new JPanel();
-        control_panel_frame = new JPanel();
+        categories_frame = new Column();
+        menu_frame = new Column();
+        orders_frame = new Column();
+        control_panel_frame = new Column();
 
         setUpColumns();
 
         // TODO delete this
-        categories_frame.setBackground(Color.RED);
-//        menu_frame.setBackground(Color.YELLOW);
-//        orders_frame.setBackground(Color.BLUE);
-//        control_panel_frame.setBackground(Color.DARK_GRAY);
+        categories_frame.setBackground(Color.GREEN);
+
+        menu_frame.setBackground(Color.YELLOW);
+
+        orders_frame.setBackground(Color.BLUE);
+
+        control_panel_frame.setBackground(Color.DARK_GRAY);
+
     }
 
     private void setUpColumns() {
@@ -63,9 +67,9 @@ public class MyInterface implements Interface {
 
     }
 
-//    private void fillCategories() {
-//
-//    }
+    private void fillCategories() {
+
+    }
 
     private void addBasicColumns() {
         window.add(categories_frame);

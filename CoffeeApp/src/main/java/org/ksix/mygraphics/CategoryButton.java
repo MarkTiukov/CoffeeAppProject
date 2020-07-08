@@ -7,9 +7,8 @@ import javax.swing.*;
 public class CategoryButton extends JButton {
     CategoryStatus associated_status;
 
-    public CategoryButton(String text, CategoryStatus associated_status) {
-        //TODO here
-        super(text);
+    public CategoryButton(CategoryStatus associated_status) {
+        super(associated_status.toString());
         this.associated_status = associated_status;
     }
 
