@@ -15,7 +15,7 @@ public class MyInterface implements Interface {
     public MyInterface() {
         setUpWindow();
         createBasicFrames();
-        addBasicFrames();
+        addBasicColumns();
     }
 
     @Override
@@ -29,21 +29,22 @@ public class MyInterface implements Interface {
     }
 
     private void createBasicFrames() {
+        //TODO replace for my own "Column"
         categories_frame = new JPanel();
         menu_frame = new JPanel();
         orders_frame = new JPanel();
         control_panel_frame = new JPanel();
 
-        setUpFrames();
+        setUpColumns();
 
         // TODO delete this
         categories_frame.setBackground(Color.RED);
-        menu_frame.setBackground(Color.YELLOW);
-        orders_frame.setBackground(Color.BLUE);
-        control_panel_frame.setBackground(Color.DARK_GRAY);
+//        menu_frame.setBackground(Color.YELLOW);
+//        orders_frame.setBackground(Color.BLUE);
+//        control_panel_frame.setBackground(Color.DARK_GRAY);
     }
 
-    private void setUpFrames() {
+    private void setUpColumns() {
         external_layout.putConstraint(SpringLayout.NORTH, categories_frame, STANDART_INDENTATION, SpringLayout.NORTH, window.getContentPane());
         external_layout.putConstraint(SpringLayout.NORTH, menu_frame, 0, SpringLayout.NORTH, categories_frame);
         external_layout.putConstraint(SpringLayout.NORTH, orders_frame, 0, SpringLayout.NORTH, menu_frame);
@@ -62,7 +63,11 @@ public class MyInterface implements Interface {
 
     }
 
-    private void addBasicFrames() {
+//    private void fillCategories() {
+//
+//    }
+
+    private void addBasicColumns() {
         window.add(categories_frame);
         window.add(menu_frame);
         window.add(orders_frame);
@@ -71,6 +76,7 @@ public class MyInterface implements Interface {
 
     @Override
     public void showWindow() {
+        window.pack();
         window.setVisible(true);
     }
 
