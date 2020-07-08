@@ -1,6 +1,6 @@
 package org.ksix;
 
-public enum CategoryStatus {
+public enum CategoryName {
     COFFEE,
     TEA,
     DESSERTS,

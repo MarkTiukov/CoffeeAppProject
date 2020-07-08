@@ -12,7 +12,7 @@ public class Column extends JPanel {
     public Column() {
         super();
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        this.add(new JLabel("constructor "));
+        this.add(new JLabel("constructor ")); //TODO delete this
         this.setPreferredSize(new Dimension(PREFERRED_WIDTH, PREFERRED_HEIGHT));
     }
 }

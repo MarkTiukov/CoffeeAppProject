@@ -4,7 +4,7 @@ import org.ksix.mygraphics.MyInterface;
 
 public class MainClass {
 
-    CategoryStatus current_category = CategoryStatus.COFFEE;
+    CategoryName current_category = CategoryName.COFFEE;
 
     public static void main(String[] args) {
         Uploader.uploadEverything();
