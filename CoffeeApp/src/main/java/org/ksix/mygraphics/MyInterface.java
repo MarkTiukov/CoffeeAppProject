@@ -1,10 +1,12 @@
 package org.ksix.mygraphics;
 
+import org.ksix.CategoryName;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class MyInterface implements Interface {
-    private final JFrame window = new JFrame("War Game");
+    private final JFrame window = new JFrame("Coffeeeeeeeee");
     private final int STANDART_INDENTATION = 5;
     private Column categories_frame;
     private Column menu_frame;
@@ -35,17 +37,14 @@ public class MyInterface implements Interface {
         orders_frame = new Column();
         control_panel_frame = new Column();
 
-        setUpColumns();
-
         // TODO delete this
         categories_frame.setBackground(Color.GREEN);
-
         menu_frame.setBackground(Color.YELLOW);
-
         orders_frame.setBackground(Color.BLUE);
-
         control_panel_frame.setBackground(Color.DARK_GRAY);
+        //
 
+        setUpColumns();
     }
 
     private void setUpColumns() {
@@ -65,10 +64,16 @@ public class MyInterface implements Interface {
         external_layout.putConstraint(SpringLayout.SOUTH, orders_frame, 0, SpringLayout.SOUTH, menu_frame);
         external_layout.putConstraint(SpringLayout.SOUTH, control_panel_frame, 0, SpringLayout.SOUTH, orders_frame);
 
+        fillCategories();
+
     }
 
     private void fillCategories() {
-        // TODO make fillCategories()
+        for (CategoryName category :
+                CategoryName.values()) {
+            CategoryButton button = new CategoryButton(category);
+            categories_frame.add(button);
+        }
     }
 
     private void addBasicColumns() {

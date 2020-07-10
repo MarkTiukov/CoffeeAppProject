@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class Column extends JPanel {
 
-    private static final int PREFERRED_WIDTH = 1;
+    private static final int PREFERRED_WIDTH = 100000;
     private static final int PREFERRED_HEIGHT = 1;
 
 
@@ -15,4 +15,5 @@ public class Column extends JPanel {
         this.add(new JLabel("constructor ")); //TODO delete this
         this.setPreferredSize(new Dimension(PREFERRED_WIDTH, PREFERRED_HEIGHT));
     }
+
 }
