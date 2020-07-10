@@ -14,9 +14,9 @@ public class CategoryButton extends JButton {
         super(associated_status.toString());
         this.associated_status = associated_status;
         this.setMaximumSize(new Dimension(MAX_WIDTH, MAX_HEIGHT));
+        this.setBorderPainted(true);
         this.setBackground(Color.BLACK);
-        this.setForeground(Color.GRAY);
-        setBorderPainted(false);
+        this.setForeground(Color.LIGHT_GRAY);
     }
 
 
