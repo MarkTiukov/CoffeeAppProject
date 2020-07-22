@@ -1,10 +1,12 @@
 package org.ksix;
 
-import org.ksix.mygraphics.CategoryButton;
 import org.ksix.mygraphics.MyInterface;
 
-import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
 
 public class MainClass {
 
@@ -15,15 +17,44 @@ public class MainClass {
         MyInterface my_interface = new MyInterface();
         my_interface.showWindow();
 
-        /*JFrame window = new JFrame("test");
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        // window.setUndecorated(true);
-        window.setLayout(new BorderLayout());
-        window.add(new CategoryButton(CategoryName.COFFEE), BorderLayout.CENTER);
-        window.pack();
-        window.setVisible(true);*/
     }
 
+    public static Color getRandomColor() {
+        //TODO delete this
+        Color[] colors = {Color.BLUE, Color.CYAN, Color.DARK_GRAY, Color.GREEN, Color.LIGHT_GRAY, Color.GRAY, Color.YELLOW, Color.MAGENTA, Color.PINK, Color.ORANGE};
+        Random random = new Random();
+        return colors[random.nextInt(colors.length)];
+    }
+
+    public static String getRandomWord() {
+        //TODO delete this
+        ArrayList<String> words = new ArrayList<>();
+        words.add("department");
+        words.add("reaction");
+        words.add("grandmother");
+        words.add("fishing");
+        words.add("injury");
+        words.add("vehicle");
+        words.add("distribution");
+        words.add("membership");
+        words.add("basis");
+        words.add("cookie");
+        words.add("funeral");
+        words.add("priority");
+        words.add("efficiency");
+        words.add("guest");
+        words.add("preference");
+        words.add("bird");
+        words.add("investment");
+        words.add("piano");
+        words.add("country");
+        words.add("application");
+        Random random = new Random();
+        return words.get(random.nextInt(words.size()));
+    }
+
+    public static List<String> getNames(Class<? extends Enum<?>> e) {
+        return Arrays.asList(Arrays.stream(e.getEnumConstants()).map(Enum::name).toArray(String[]::new));
+    }
 
 }
