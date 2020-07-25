@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Uploader {
-    private static final String main_directory = "static/";
-    private static final String menu_directory = main_directory + "menu/";
+    private static final String mainDirectory = "static/";
+    private static final String menuDirectory = mainDirectory + "menu/";
     public static ArrayList<Dish> coffee = new ArrayList<>();
     public static ArrayList<Dish> tea = new ArrayList<>();
     public static ArrayList<Dish> desserts = new ArrayList<>();
@@ -21,16 +21,16 @@ public class Uploader {
     }
 
     private static void uploadCoffeeMenu() {
-        scanFile(new File(menu_directory + "coffee_menu.txt"), coffee, true);
+        scanFile(new File(menuDirectory + "coffee_menu.txt"), coffee, true);
     }
 
     private static void uploadTeaMenu() {
-        scanFile(new File(menu_directory + "tea_menu.txt"), coffee, true);
+        scanFile(new File(menuDirectory + "tea_menu.txt"), coffee, true);
 
     }
 
     private static void uploadDessertMenu() {
-        scanFile(new File(menu_directory + "dessert_menu.txt"), desserts, true);
+        scanFile(new File(menuDirectory + "dessert_menu.txt"), desserts, true);
     }
 
     private static void scanFile(File current_file, ArrayList<Dish> array, boolean hasPrice) {
@@ -45,7 +45,7 @@ public class Uploader {
     }
 
     private static void uploadSyrupMenu() {
-        scanFile(new File(menu_directory + "syrup_menu.txt"), syrups, false);
+        scanFile(new File(menuDirectory + "syrup_menu.txt"), syrups, false);
     }
 
 }

@@ -10,7 +10,7 @@ import java.util.Random;
 
 public class MainClass {
 
-    CategoryName current_category = CategoryName.COFFEE;
+    CategoryName currentCategory = CategoryName.COFFEE;
 
     public static void main(String[] args) {
         Uploader.uploadEverything();

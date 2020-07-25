@@ -9,12 +9,12 @@ import java.awt.*;
 public class MyInterface implements Interface {
     private final JFrame window = new JFrame("Кофе   кофе   кофеёк");
     private final int STANDART_INDENTATION = 5;
-    private Column categories_column;
-    private MenuColumn menu_column;
-    private Column orders_column;
-    private Column control_panel_column;
-    private SpringLayout external_layout;
-    private CategoryName opened_menu = CategoryName.COFFEE;
+    private Column categoriesColumn;
+    private MenuColumn menuColumn;
+    private Column ordersColumn;
+    private Column controlPanelColumn;
+    private SpringLayout externalLayout;
+    private CategoryName openedMenu = CategoryName.COFFEE;
 
     public MyInterface() {
         setUpWindow();
@@ -26,42 +26,42 @@ public class MyInterface implements Interface {
     public void setUpWindow() {
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        external_layout = new SpringLayout();
-        window.setLayout(external_layout);
+        externalLayout = new SpringLayout();
+        window.setLayout(externalLayout);
     }
 
     private void createBasicFrames() {
-        categories_column = new Column();
-        menu_column = new MenuColumn(CategoryName.values().length, MainClass.getNames(CategoryName.class));
-        orders_column = new Column();
-        control_panel_column = new Column();
+        categoriesColumn = new Column();
+        menuColumn = new MenuColumn(CategoryName.values().length, MainClass.getNames(CategoryName.class));
+        ordersColumn = new Column();
+        controlPanelColumn = new Column();
 
         // TODO delete this
-        categories_column.setBackground(Color.GREEN);
-        // menu_column.setBackground(Color.YELLOW);
-        orders_column.setBackground(Color.BLUE);
-        control_panel_column.setBackground(Color.DARK_GRAY);
+        categoriesColumn.setBackground(Color.GREEN);
+        // menuColumn.setBackground(Color.YELLOW);
+        ordersColumn.setBackground(Color.BLUE);
+        controlPanelColumn.setBackground(Color.DARK_GRAY);
         //
 
         setUpColumns();
     }
 
     private void setUpColumns() {
-        external_layout.putConstraint(SpringLayout.NORTH, categories_column, STANDART_INDENTATION, SpringLayout.NORTH, window.getContentPane());
-        external_layout.putConstraint(SpringLayout.NORTH, menu_column, 0, SpringLayout.NORTH, categories_column);
-        external_layout.putConstraint(SpringLayout.NORTH, orders_column, 0, SpringLayout.NORTH, menu_column);
-        external_layout.putConstraint(SpringLayout.NORTH, control_panel_column, 0, SpringLayout.NORTH, orders_column);
+        externalLayout.putConstraint(SpringLayout.NORTH, categoriesColumn, STANDART_INDENTATION, SpringLayout.NORTH, window.getContentPane());
+        externalLayout.putConstraint(SpringLayout.NORTH, menuColumn, 0, SpringLayout.NORTH, categoriesColumn);
+        externalLayout.putConstraint(SpringLayout.NORTH, ordersColumn, 0, SpringLayout.NORTH, menuColumn);
+        externalLayout.putConstraint(SpringLayout.NORTH, controlPanelColumn, 0, SpringLayout.NORTH, ordersColumn);
 
-        external_layout.putConstraint(SpringLayout.WEST, categories_column, STANDART_INDENTATION, SpringLayout.WEST, window.getContentPane());
-        external_layout.putConstraint(SpringLayout.WEST, menu_column, STANDART_INDENTATION, SpringLayout.EAST, categories_column);
-        external_layout.putConstraint(SpringLayout.WEST, orders_column, STANDART_INDENTATION, SpringLayout.EAST, menu_column);
-        external_layout.putConstraint(SpringLayout.WEST, control_panel_column, STANDART_INDENTATION, SpringLayout.EAST, orders_column);
-        external_layout.putConstraint(SpringLayout.EAST, window.getContentPane(), STANDART_INDENTATION, SpringLayout.EAST, control_panel_column);
+        externalLayout.putConstraint(SpringLayout.WEST, categoriesColumn, STANDART_INDENTATION, SpringLayout.WEST, window.getContentPane());
+        externalLayout.putConstraint(SpringLayout.WEST, menuColumn, STANDART_INDENTATION, SpringLayout.EAST, categoriesColumn);
+        externalLayout.putConstraint(SpringLayout.WEST, ordersColumn, STANDART_INDENTATION, SpringLayout.EAST, menuColumn);
+        externalLayout.putConstraint(SpringLayout.WEST, controlPanelColumn, STANDART_INDENTATION, SpringLayout.EAST, ordersColumn);
+        externalLayout.putConstraint(SpringLayout.EAST, window.getContentPane(), STANDART_INDENTATION, SpringLayout.EAST, controlPanelColumn);
 
-        external_layout.putConstraint(SpringLayout.SOUTH, window.getContentPane(), STANDART_INDENTATION, SpringLayout.SOUTH, categories_column);
-        external_layout.putConstraint(SpringLayout.SOUTH, menu_column, 0, SpringLayout.SOUTH, categories_column);
-        external_layout.putConstraint(SpringLayout.SOUTH, orders_column, 0, SpringLayout.SOUTH, menu_column);
-        external_layout.putConstraint(SpringLayout.SOUTH, control_panel_column, 0, SpringLayout.SOUTH, orders_column);
+        externalLayout.putConstraint(SpringLayout.SOUTH, window.getContentPane(), STANDART_INDENTATION, SpringLayout.SOUTH, categoriesColumn);
+        externalLayout.putConstraint(SpringLayout.SOUTH, menuColumn, 0, SpringLayout.SOUTH, categoriesColumn);
+        externalLayout.putConstraint(SpringLayout.SOUTH, ordersColumn, 0, SpringLayout.SOUTH, menuColumn);
+        externalLayout.putConstraint(SpringLayout.SOUTH, controlPanelColumn, 0, SpringLayout.SOUTH, ordersColumn);
 
         fillCategories();
 
@@ -71,15 +71,15 @@ public class MyInterface implements Interface {
         for (CategoryName category :
                 CategoryName.values()) {
             CategoryButton button = new CategoryButton(category, this);
-            categories_column.add(button);
+            categoriesColumn.add(button);
         }
     }
 
     private void addBasicColumns() {
-        window.add(categories_column);
-        window.add(menu_column);
-        window.add(orders_column);
-        window.add(control_panel_column);
+        window.add(categoriesColumn);
+        window.add(menuColumn);
+        window.add(ordersColumn);
+        window.add(controlPanelColumn);
     }
 
     @Override
@@ -89,12 +89,12 @@ public class MyInterface implements Interface {
     }
 
     public CategoryName getOpenedMenu() {
-        return opened_menu;
+        return openedMenu;
     }
 
-    public void openMenu(CategoryName opened_menu) {
-        this.opened_menu = opened_menu;
-        this.menu_column.showMenu(opened_menu.toString());
+    public void openMenu(CategoryName openedMenu) {
+        this.openedMenu = openedMenu;
+        this.menuColumn.showMenu(openedMenu.toString());
     }
 
 }
