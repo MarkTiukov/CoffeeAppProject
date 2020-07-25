@@ -1,5 +1,7 @@
 package org.ksix;
 
+import org.ksix.orders.Dish;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -26,7 +28,6 @@ public class Uploader {
 
     private static void uploadTeaMenu() {
         scanFile(new File(menuDirectory + "tea_menu.txt"), tea, true);
-
     }
 
     private static void uploadDessertMenu() {
@@ -46,6 +47,21 @@ public class Uploader {
 
     private static void uploadSyrupMenu() {
         scanFile(new File(menuDirectory + "syrup_menu.txt"), syrups, false);
+    }
+
+    public static ArrayList<Dish> getData(CategoryName category) {
+        switch (category) {
+            case COFFEE:
+                return coffee;
+            case TEA:
+                return tea;
+            case SYRUPS:
+                return syrups;
+            case DESSERTS:
+                return desserts;
+            default:
+                return null;
+        }
     }
 
 }

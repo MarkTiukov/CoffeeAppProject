@@ -1,10 +1,10 @@
 package org.ksix.mygraphics;
 
 import org.ksix.CategoryName;
-import org.ksix.MainClass;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Arrays;
 
 public class MyInterface implements Interface {
     private final JFrame window = new JFrame("Кофе   кофе   кофеёк");
@@ -32,7 +32,7 @@ public class MyInterface implements Interface {
 
     private void createBasicFrames() {
         categoriesColumn = new Column();
-        menuColumn = new MenuColumn(CategoryName.values().length, MainClass.getNames(CategoryName.class));
+        menuColumn = new MenuColumn(CategoryName.values().length, Arrays.asList(CategoryName.values()));
         ordersColumn = new Column();
         controlPanelColumn = new Column();
 

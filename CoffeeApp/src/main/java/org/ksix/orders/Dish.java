@@ -1,8 +1,8 @@
-package org.ksix;
+package org.ksix.orders;
 
 public class Dish {
-    private String name;
-    private int price;
+    private final String name;
+    private final int price;
 
     public Dish(String name, int price) {
         this.name = name.replace("_", " ");

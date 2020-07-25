@@ -13,6 +13,7 @@ public class MainClass {
     CategoryName currentCategory = CategoryName.COFFEE;
 
     public static void main(String[] args) {
+
         Uploader.uploadEverything();
         MyInterface my_interface = new MyInterface();
         my_interface.showWindow();
