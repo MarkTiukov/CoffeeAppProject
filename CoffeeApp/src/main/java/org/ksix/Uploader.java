@@ -25,7 +25,7 @@ public class Uploader {
     }
 
     private static void uploadTeaMenu() {
-        scanFile(new File(menuDirectory + "tea_menu.txt"), coffee, true);
+        scanFile(new File(menuDirectory + "tea_menu.txt"), tea, true);
 
     }
 
