@@ -1,7 +1,9 @@
-package org.ksix.mygraphics;
+package org.ksix.mygraphics.columns;
 
 import org.ksix.CategoryName;
 import org.ksix.MainClass;
+import org.ksix.mygraphics.MenuCard;
+import org.ksix.orders.Order;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,18 +11,15 @@ import java.util.List;
 
 public class MenuColumn extends Column {
 
-    public MenuColumn(int numberOfCards, List<CategoryName> cardNames) {
+    //TODO  make scrollable (through JScrollPane?)
+
+    private JScrollPane scrollPane;
+
+    public MenuColumn(List<CategoryName> cardNames, List<Order> orders) {
         super();
         this.setLayout(new CardLayout());
         for (CategoryName cardName : cardNames) {
-            /*JPanel toAdd = new Column();
-            toAdd.setBackground(MainClass.getRandomColor());      //TODO delete this;
-            for (int i = 0; i < 15; ++i) {                        //
-                toAdd.add(new JLabel(MainClass.getRandomWord())); //
-            }                                                     //
-            */
-
-            JPanel toAdd = new MenuCard(cardName);
+            JPanel toAdd = new MenuCard(cardName, orders);
             toAdd.setBackground(MainClass.getRandomColor());
             this.add(toAdd, cardName.toString());
         }

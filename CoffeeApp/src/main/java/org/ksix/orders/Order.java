@@ -8,8 +8,9 @@ public class Order {
 
     private String name;
     private int number;
-    private int sum;
-    private ArrayList<Dish> dishes;
+    private int sum = 0;
+    private boolean isOpened = true;
+    private ArrayList<Dish> dishes = new ArrayList<>();
 
     public Order(int number) {
         this.number = number;
@@ -36,5 +37,9 @@ public class Order {
 
     public int getSum() {
         return sum;
+    }
+
+    public boolean getStatus() {
+        return isOpened;
     }
 }

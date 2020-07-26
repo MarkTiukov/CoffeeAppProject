@@ -1,9 +1,14 @@
 package org.ksix.mygraphics;
 
 import org.ksix.CategoryName;
+import org.ksix.mygraphics.columns.Column;
+import org.ksix.mygraphics.columns.MenuColumn;
+import org.ksix.mygraphics.columns.OrdersColumn;
+import org.ksix.orders.Order;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MyInterface implements Interface {
@@ -11,12 +16,13 @@ public class MyInterface implements Interface {
     private final int STANDART_INDENTATION = 5;
     private Column categoriesColumn;
     private MenuColumn menuColumn;
-    private Column ordersColumn;
+    private OrdersColumn ordersColumn;
     private Column controlPanelColumn;
     private SpringLayout externalLayout;
-    private CategoryName openedMenu = CategoryName.COFFEE;
+    private ArrayList<Order> orders;
 
-    public MyInterface() {
+    public MyInterface(ArrayList<Order> orders) {
+        this.orders = orders;
         setUpWindow();
         createBasicFrames();
         addBasicColumns();
@@ -32,8 +38,8 @@ public class MyInterface implements Interface {
 
     private void createBasicFrames() {
         categoriesColumn = new Column();
-        menuColumn = new MenuColumn(CategoryName.values().length, Arrays.asList(CategoryName.values()));
-        ordersColumn = new Column();
+        menuColumn = new MenuColumn(Arrays.asList(CategoryName.values()), orders);
+        ordersColumn = new OrdersColumn(orders);
         controlPanelColumn = new Column();
 
         // TODO delete this
@@ -63,7 +69,9 @@ public class MyInterface implements Interface {
         externalLayout.putConstraint(SpringLayout.SOUTH, ordersColumn, 0, SpringLayout.SOUTH, menuColumn);
         externalLayout.putConstraint(SpringLayout.SOUTH, controlPanelColumn, 0, SpringLayout.SOUTH, ordersColumn);
 
+        categoriesColumn.setPreferredSize(new Dimension(400, 1)); // TODO delete this;
         fillCategories();
+        fillOrders();
 
     }
 
@@ -73,6 +81,14 @@ public class MyInterface implements Interface {
             CategoryButton button = new CategoryButton(category, this);
             categoriesColumn.add(button);
         }
+    }
+
+    private void fillOrders() {
+        for (Order order : orders) {
+            System.out.println("here");
+            ordersColumn.add(new JLabel(order.getName()));
+        }
+        System.out.println("size == " + orders.size());
     }
 
     private void addBasicColumns() {
@@ -88,13 +104,12 @@ public class MyInterface implements Interface {
         window.setVisible(true);
     }
 
-    public CategoryName getOpenedMenu() {
-        return openedMenu;
+    public void openMenu(CategoryName openedMenu) {
+        this.menuColumn.showMenu(openedMenu.toString());
     }
 
-    public void openMenu(CategoryName openedMenu) {
-        this.openedMenu = openedMenu;
-        this.menuColumn.showMenu(openedMenu.toString());
+    public void updateOrdersList() {
+        ordersColumn.update();
     }
 
 }

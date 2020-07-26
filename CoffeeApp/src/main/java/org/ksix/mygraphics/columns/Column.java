@@ -1,4 +1,4 @@
-package org.ksix.mygraphics;
+package org.ksix.mygraphics.columns;
 
 import javax.swing.*;
 import java.awt.*;
