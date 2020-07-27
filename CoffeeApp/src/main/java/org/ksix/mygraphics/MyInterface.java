@@ -28,6 +28,10 @@ public class MyInterface implements Interface {
         addBasicColumns();
     }
 
+    public static String getNewName(String message) {
+        return JOptionPane.showInputDialog(message);
+    }
+
     @Override
     public void setUpWindow() {
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -88,7 +92,6 @@ public class MyInterface implements Interface {
             System.out.println("here");
             ordersColumn.add(new JLabel(order.getName()));
         }
-        System.out.println("size == " + orders.size());
     }
 
     private void addBasicColumns() {
@@ -110,6 +113,10 @@ public class MyInterface implements Interface {
 
     public void updateOrdersList() {
         ordersColumn.update();
+    }
+
+    public static void undefinedActionPerformed(String message) {
+        JOptionPane.showMessageDialog(null, message, "Undefined action", JOptionPane.ERROR_MESSAGE);
     }
 
 }

@@ -15,7 +15,6 @@ public class Till {
         for (int i = 0; i < 30; ++i) {
             orders.add(new Order(i + 1));
         }
-        System.out.println("size from till() == " + orders.size());
     }
 
     public void start() {
